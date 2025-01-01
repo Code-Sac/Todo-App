@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>My Daily Todo</h1>
+    <p>
+      <button>
+        <a href="/todo-create/">Create</a>
+      </button>
+    </p>
+    {% for todo in todos %}
+    <p>
+      {{ todo.title }}
+      <button>
+        <a href="/todo-update/{{ todo.pk }}/">Update</a>
+      </button>
+      <button>
+        <a href="/todo-delete/{{ todo.pk }}/">Delete</a>
+      </button>
+    </p>
+    {% endfor %}
+    <!-- {{todos}} -->
+  </body>
+</html>
