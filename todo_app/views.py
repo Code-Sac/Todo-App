@@ -1,6 +1,11 @@
 from django.shortcuts import render, HttpResponseRedirect
 from todo_app.models import Todo
 
+# CRUD operations
+# C => Create 
+# R => Retrieve / Read
+# U => Update
+# D => Delete
 
 # Create your views here.
 def todo_list(
@@ -9,7 +14,7 @@ def todo_list(
     todos = Todo.objects.all()
     return render(
         request,
-        "todo_list.html",
+        "bootstrap/todo_list.html",
         {"todos": todos},
     )
 
