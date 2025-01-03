@@ -24,7 +24,7 @@ def todo_create(request):
         title = request.POST["title"]
         Todo.objects.create(title=title)
         return HttpResponseRedirect("/")
-    return render(request, "todo_create.html")
+    return render(request, "bootstrap/todo_create.html")
 
 
 # pk = primary Key => uniquely identify
@@ -42,4 +42,4 @@ def todo_update(request, pk):
         todo.save()
         return HttpResponseRedirect("/")
     else:
-        return render(request, "todo_update.html", {"todo": todo})
+        return render(request, "bootstrap/todo_update.html", {"todo": todo})
