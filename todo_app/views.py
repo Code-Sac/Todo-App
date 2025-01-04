@@ -2,19 +2,21 @@ from django.shortcuts import render, HttpResponseRedirect
 from todo_app.models import Todo
 
 # CRUD operations
-# C => Create 
+# C => Create
 # R => Retrieve / Read
 # U => Update
 # D => Delete
 
 # Create your views here.
+
+
 def todo_list(
     request,
 ):  # request is parameter. Can write any other name but 'request' is in practice
     todos = Todo.objects.all()
     return render(
         request,
-        "bootstrap/todo_list.html",
+        "todo_list.html",
         {"todos": todos},
     )
 
@@ -24,7 +26,7 @@ def todo_create(request):
         title = request.POST["title"]
         Todo.objects.create(title=title)
         return HttpResponseRedirect("/")
-    return render(request, "bootstrap/todo_create.html")
+    return render(request, "todo_create.html")
 
 
 # pk = primary Key => uniquely identify
@@ -42,4 +44,4 @@ def todo_update(request, pk):
         todo.save()
         return HttpResponseRedirect("/")
     else:
-        return render(request, "bootstrap/todo_update.html", {"todo": todo})
+        return render(request, "todo_update.html", {"todo": todo})
